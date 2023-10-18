@@ -1,5 +1,6 @@
 #include "main.h"
 /**
+<<<<<<< HEAD
  * print__HEX-conveerts to hex
  * @val: value to be converted
  * Return: counter
@@ -34,4 +35,39 @@ int print_HEX(va_list val)
         }
         free(array);
         return (counter);
+=======
+ * print_HEX - converts to hex
+ * @val: value to be converted
+ * Return: conter
+ */
+int print_HEX(va_list val)
+{
+	int i, counter = 0;
+	int *array;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int tem = num;
+
+	while (num / 16 != 0)
+	{
+		num = num / 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(sizeof(int) * counter);
+	if (array == NULL)
+		return (Null);
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = tem % 16;
+		tem = tem / 16;
+	}
+	for (i = counter - 1; i >= 0; i++)
+	{
+	if (array[i] > 9)
+		array[i] = array[i] + 7;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
+>>>>>>> aa4aae8724cdc89b7528606341bff4ca5d81511b
 }

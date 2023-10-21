@@ -1,10 +1,11 @@
 #include "main.h"
+
 /**
- * print_bin - converts to binary
- * @val: argument
- * Return: Integer
+ * printf_bin - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
  */
-int print_bin(va_list val)
+int printf_bin(va_list val)
 {
 	int flag = 0;
 	int cont = 0;
@@ -14,14 +15,14 @@ int print_bin(va_list val)
 
 	for (i = 0; i < 32; i++)
 	{
-		p = ((a << (32 - i)) & num);
+		p = ((a << (31 - i)) & num);
 		if (p >> (31 - i))
 			flag = 1;
 		if (flag)
 		{
 			b = p >> (31 - i);
 			_putchar(b + 48);
-			cont++
+			cont++;
 		}
 	}
 	if (cont == 0)
@@ -30,5 +31,4 @@ int print_bin(va_list val)
 		_putchar('0');
 	}
 	return (cont);
-
 }
